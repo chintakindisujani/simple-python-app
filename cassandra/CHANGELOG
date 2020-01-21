@@ -1,0 +1,158 @@
+v0.23.0
+- Update simple_uuid dependency (issue #197, courtesy @tsenart)
+- Changed to new github url: github.com/cassandra-rb/cassandra
+
+v0.22.0
+- Add new composite API to resolve ambiguity between unpacking a composite and packing a composite with one element (issue #196, courtesy @kevinkehl)
+- Breaking change: schema change methods no longer catch exceptions internally.  They work the same as everything else.
+
+v0.21.0
+- Add 1.2 libs to gem
+
+v0.19.0
+- Fixed windows build by disabling native extensions (issue #188, courtesy @jacek99)
+- Speed improvement to native composite column extension (issue #186, courtesy @muirmanders)
+- Fix OrderedHash iterator return values (issue #185, courtesy @fester)
+- Native support for dynamic composite decoding (issue #184, courtesy @muirmanders)
+
+v0.18.0
+- Cassandra 1.2 support (issue #175, courtesy @brainopia)
+- drop_keyspace defaults to current keyspace (issue #176, courtesy @brianopia)
+- Easier flush_batch interface (issue #182, courtesy @brianopia)
+- Support for removing multiple columns (issue #183, courtesy @brianopia)
+
+v0.17.0
+- multi_get_columns with only one query (courtesy @christian-blades-cb)
+- documentation fixes for get and multi_get (issue #136, courtesy @christian-blades-cb)
+
+v0.16.0
+- New :queue_size option for batch mode (courtesy @vicentllongo)
+- Cassandra 1.1 support (courtesy @hawknewton)
+
+v0.15.0
+- Fixes for ruby 1.8 (issue #158, courtesy @jarib)
+- get_indexed_slices returns an OrderedHash (issue #110)
+
+v0.14.0
+- Numerous performance improvements (courtesy @nearbuy)
+- Fixed many 0.6 bugs
+- Added batch counter update support to Cassandra::Mock
+- Add support DynamicComposite columns (issue #154, courtesy @nearbuy)
+- API cleanup in get_indexed_slices (issue #155, courtesy @mcmire)
+
+v0.13.0
+- Support for new thrift gem versions
+- Updated all links to point to new github repo
+- Batch support for counter updates (courtesy @nearbuy)
+- Counter super column support in get and get_range (courtesy @behrangj)
+- Composite columns (courtesy @nearbuy)
+- Gemspec cleanup
+
+v0.12.2
+- Respect the start_key in get_range. Resolves Issue #127.
+- Fix issue with differences in gemspec and what is required. Resolves Issue #125.
+- Update to Cassandra 0.8.7 and 1.0.2.
+
+v0.12.1
+- Fix issue with simple_uuid dependency.
+- Fix issue with get_range & get_range_batch keeping all results when a block is given. Resolves Issue# 112.
+
+v0.12.0 Changed thrift_client dependency to 0.7.0
+
+v0.11.4
+- Fix get_range to invoke blocks
+- Fix current distribution urls in Rakfile. Resolves Issue# 97.
+
+v0.11.3
+- Fix login after reconnect
+
+v0.11.2
+- Update thrift_client gem to deal with failover bug.
+
+v0.11.1
+- Add counter support for Cassandra 0.8. (Thanks Swrve team!)
+- Add additional rake tasks to start and stop cassandra in the background.
+- Fix issue with non-utf8 column names not being encoded/decoded properly.
+- Add way to specify a default read/write consistency.
+- Consolidate 0.7 and 0.8 functions, and move 0.6 specific functions into lib/cassandra/0.6/
+- Use 0.8-rc1 as 0.8 install target.
+- Updated get_index_slices API to allow passing an array of hashes instead of IndexClause instance. (Maintains backward compatibility.)
+- Fix permissions issue.
+
+v0.11.0
+- Remove direct thrift dependency. Allow thrift_client to require it.
+- Add functions for each and each_key to iterate through key ranges.
+- Add function for get_range_keys which returns an array of keys in a given range.
+- Changed the return value of get_range to an OrderedHash.
+- Change get_range to accept both a range of keys and a range of columns.
+- Add batched range support to get_range and add get_range_batch.
+
+v0.10.0 Major Update (rjackson)
+- Update Rakefile to install 0.6.13, 0.7.4, 0.8.0-beta1 to ~/cassandra/cassandra-VERSION
+- Add data:load task to Rakefile for creating the schema required for the tests
+- Default the Rakefile to use 0.8-beta1
+- Setup test suite to work on 0.6.13, 0.7.4, and 0.8.0-beta1
+- All tests pass for all supported (0.6.13, 0.7.4, 0.8.0-beta1) versions.
+- Added Support for 0.8-beta1
+- Changed get_index_slices to return a hash of rows
+- Updated Cassandra::Mock to pass all tests for each Cassandra version
+
+v0.9.2 fix bug with deletions in batch mutations
+
+v0.9.1 Support for secondary indexing. (jhermes)
+Fix bug in mock where we didn't support range queries. (therealadam)
+Support deletes in batch mutations. [blanquer]
+
+v0.9.0 cassandra 0.7 compat
+
+v0.8.2 Renamed :thrift_client_class option, UUID fix, 0.6 update, fixing cassanda install, much Mock fixes
+
+v0.8.1 Adding the ability to compose ThriftClient classes.
+
+v0.8.0 Compatibility with Cassandra 0.6 betas (no longer compatible with 0.5); assorted bugfixes.
+
+v0.7.6 Bugfixes.
+
+v0.7.5 Another packaging error.
+
+v0.7.4 Fix thrift_client dependency
+
+v0.7.3 New Cassandra::Mock - a pure ruby mock of cassanra; bugfixes.
+
+v0.7.2 Switch to newly-extraced simple_uuid gem, minor bugfixes.
+
+v0.7.1 update thrift-generated code to 0.5
+
+v0.7 Various improvements.
+- Compatibility with Cassandra 0.5.
+- performance improvements
+
+v0.6. Use thrift_client gem.
+
+v0.5.6.2. Release process was busted.
+
+v0.5.6. Real multiget.
+
+v0.5.5. to_guid for Long. Don't continually re-checkout the Git mirror. Use curl instead of wget, sigh. Use new unified insert API.
+
+v0.5.4. Use wget instead of curl.
+
+v0.5.3. Update Multiblog sample schema.
+
+v0.5.2. Update server version so CommitLog replay is fixed.
+
+v0.5.1. Add bin/cassandra_helper script, to build and start the server for you. Improve build error reporting.
+
+v0.5. More API changes. Working temporal comparators.
+
+v0.4. Use new comparator API. Namespace Thrift bindings; rename gem and class to Cassandra. Make tokens and limits actually work. Retry UnavailableExceptions.
+
+v0.3. Use new Thrift API.
+
+v0.2.2. Use nil for empty byte array, not empty string. Improves API.
+
+v0.2.1. Don't write serialization overhead on nulls.
+
+v0.2. Re-factor table vs. column family interface per discussion with jbellis.
+
+v0.1. First release.

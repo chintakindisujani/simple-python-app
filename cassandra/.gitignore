@@ -1,0 +1,8 @@
+pkg
+*.rbc
+.redcar
+doc/
+.yardoc/
+Gemfile.lock
+cassandra-*.gem
+tmp
